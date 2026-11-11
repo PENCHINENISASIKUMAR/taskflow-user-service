@@ -63,7 +63,7 @@ pipeline {
             steps {
                 sh '''
                     set -eu
-                    docker build --pull --tag "$DOCKERHUB_NAMESPACE/$DOCKER_REPOSITORY:$IMAGE_TAG" .
+                    docker buildx build --load --pull --tag "$DOCKERHUB_NAMESPACE/$DOCKER_REPOSITORY:$IMAGE_TAG" .
                 '''
             }
         }
